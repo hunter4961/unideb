@@ -1,4 +1,4 @@
-#include "std_lib_facilities.h"
+#include <stdio.h>
 
 int main() {
   int i = 1;
