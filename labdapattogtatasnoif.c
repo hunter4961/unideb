@@ -9,13 +9,13 @@ int main (void)
     WINDOW *ablak;
     ablak = initscr ();
     
-float x = 0;
-float xp = 0;
+int x = 0;
+int xp = 0;
 
-float y = 0;
-float yp = 0;
+int y = 0;
+int yp = 0;
 
-float mx,my;
+int mx,my;
 
 getmaxyx(ablak,my,mx);
 
