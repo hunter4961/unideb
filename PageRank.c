@@ -2,8 +2,8 @@
 #include <math.h>
 
 void kiir(double tomb[], int db) { // a tömb elemeinek kiiratása (nagyobb tömb esetén sem kell módosítani)
-  int ki = 0;
-  while (ki == 0 || ki < db-1) {
+  int ki = -1;
+  while ( ki < db-1) {
     ki++;
     printf("%f\n", tomb[ki]);
   }
