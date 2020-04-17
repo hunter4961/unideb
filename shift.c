@@ -7,5 +7,5 @@ int main() {
       i <<= 1;
       b++;
     }
-  cout << b << '\n';
+  printf("%d%s\n",b, " bit");
 }
