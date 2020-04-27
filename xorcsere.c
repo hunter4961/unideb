@@ -2,8 +2,8 @@
 
 int main() {
 	
-	double a;
-	double b;
+	int a;
+	int b;
 	std::cout << "Adj meg egy számot: ";
 	std::cin >> a;
 	std::cout << "Adj meg egy másik számot: ";
