@@ -1,19 +1,16 @@
-#include "std_lib_facilities.h"
-
+#include<iostream>
 int main() {
 	
 	double a;
 	double b;
-	cout << "Írj egy számot: ";
-	cin >> a;
-	cout << "Írj egy másik számot: ";
-	cin >> b;
+	std::cout << "Írj egy számot: ";
+	std::cin >> a;
+	std::cout << "Írj egy másik számot: ";
+	std::cin >> b;
 
-	cout << "Megadott számok: " << a << " és " << b << '\n';
-	
 	a = a * b;
 	b = a / b;
 	a = a / b;
 
-	cout << "Felcserélve: " << a << " és " << b << '\n';
+	std::cout << "Felcserélve: " << a << " és " << b << '\n';
 } 
