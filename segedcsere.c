@@ -1,19 +1,18 @@
-include "std_lib_facilities.h"
-
+#include<iostream>
 int main() {
 	
-double a;
-double b;
-double x;
-	cout << "Adj meg egy számot: ";
-cin >> a;
-	cout << "Adj meg egy másik számot: ";
-cin >> b;
+int a = 2;
+int b = 4;
+int x;
 
-	cout << "Megadott számok: " << a << " és " << b << '\n';
-    x = a;
-    a = b;
-    b = x;
-    	cout << "Felcserélés után: " << a << " és " << b << '\n';
-return 0;
+	printf("a=%d\nb=%d\n",a,b);
+
+//Felcserélés: 
+x = a;
+a = b;
+b = x;
+
+	printf("a=%d\nb=%d\n",a,b);
+
+	return 0;
 }
