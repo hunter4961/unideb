@@ -1,8 +1,8 @@
 #include<iostream>
 int main() {
 	
-	double a;
-	double b;
+	int a;
+	int b;
 	std::cout << "Írj egy számot: ";
 	std::cin >> a;
 	std::cout << "Írj egy másik számot: ";
