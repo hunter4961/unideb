@@ -93,6 +93,8 @@ class Steve:
     def run(self):
         # Loop until mission ends:
         global world_state
+        lava = 0
+        turned = 0
         while world_state.is_mission_running:
             print("--- nb4tf4i arena -----------------------------------\n")
             if world_state.number_of_observations_since_last_state != 0:
@@ -125,37 +127,82 @@ class Steve:
                 print("    Steve's <): ", self.lookingat)
 
                 i = 0
-                j = [56,57,58,61,62,63,65,66,67,81,82,83,86,87,88,91,92,93]
-                lava = 0
+                k = 0
+                j = [56,57,58,61,63,66,67,68,81,82,83,86,88,91,92,93,75,76,77,78,79,80,84,85,89,90,94,95,96,97,97,99]
 
 
-                for i in range(18):
+                for i in range(32):
                     if nbr5x5x5[j[i]] == "flowing_lava":
                         lava = 1
 
+                if lava == 0 and turned == 0:
 
-                if lava == 0:
+                    self.agent_host.sendCommand("move 1")
+                    time.sleep(.1)
 
-                    if self.yaw == 90:
-                        self.agent_host.sendCommand("move 1")
-                        time.sleep(.2)
+                    if nbr5x5x5[61] == "dirt":
+                        self.agent_host.sendCommand("jumpmove 1")
+                        time.sleep(.1)
 
-                        if nbr5x5x5[61] == "dirt":
-                            self.agent_host.sendCommand("jumpmove 1")
-                            time.sleep(.2)
-                    else:
-                        self.agent_host.sendCommand("move 0")
-                        time.sleep(.2)
+                elif lava == 1 and turned == 0:
 
-                elif lava == 1:
-                    if self.yaw == 90:
+                    self.agent_host.sendCommand("turn 1")
+                    time.sleep(.1)
+
+                    self.agent_host.sendCommand("turn 1")
+                    time.sleep(.1)
+
+                    self.agent_host.sendCommand("move 1")
+                    time.sleep(.1)
+
+                    self.agent_host.sendCommand("turn -1")
+                    time.sleep(.1)
+
+                    turned = 1
+                    lava = 0
+
+                else:
+
+                    if self.yaw == 0 and nbr5x5x5[68] == "dirt"  and nbr5x5x5[66] == "dirt":
+
                         self.agent_host.sendCommand("turn 1")
-                        time.sleep(.2)
+                        time.sleep(.1)
+
+                    if self.yaw == 90 and nbr5x5x5[56] == "dirt"  and nbr5x5x5[66] == "dirt":
+
                         self.agent_host.sendCommand("turn 1")
-                        time.sleep(.2)
-                    else:
+                        time.sleep(.1)
+
+                    if self.yaw == 180 and nbr5x5x5[56] == "dirt"  and nbr5x5x5[58] == "dirt":
+
+                        self.agent_host.sendCommand("turn 1")
+                        time.sleep(.1)
+
+                    if self.yaw == 270 and nbr5x5x5[58] == "dirt"  and nbr5x5x5[68] == "dirt":
+
+                        self.agent_host.sendCommand("turn 1")
+                        time.sleep(.1)
+
+
+                    elif lava == 0:
+
                         self.agent_host.sendCommand("move 1")
-                        time.sleep(.2)
+                        time.sleep(.1)
+
+
+                    else:
+
+                        self.agent_host.sendCommand("turn 1")
+                        time.sleep(.1)
+
+                        self.agent_host.sendCommand("move 1")
+                        time.sleep(.1)
+
+                        self.agent_host.sendCommand("turn -1")
+                        time.sleep(.1)
+
+                        lava = 0
+
 
             world_state = self.agent_host.getWorldState()
 
